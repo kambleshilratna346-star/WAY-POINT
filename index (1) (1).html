@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WayPoint – Discover how to get anywhere</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#home" class="brand">
+        <span class="brand-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2L14 6V14H10V10H6V14H2V6L8 2Z" fill="white"/></svg></span>
+        <span class="brand-name">Way<span>Point</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="#home">Search</a>
+        <a href="#results">Routes</a>
+        <a href="#planner">Trip Planner</a>
+        <a href="#trips">My Trips</a>
+      </div>
+      <div class="nav-actions">
+        <a href="#login" class="nav-signin">Sign In</a>
+        <a href="#trips" class="nav-account">My Account</a>
+      </div>
+    </div>
+  </nav>
+
+<!-- ============ PAGE: HOME ============ -->
+<section class="page" id="home">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-grid"></div>
+    <svg class="hero-circles" viewBox="0 0 1440 580" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <circle cx="320" cy="200" r="80" fill="none" stroke="white" stroke-width="0.5"/>
+      <circle cx="720" cy="280" r="120" fill="none" stroke="white" stroke-width="0.5"/>
+      <circle cx="1100" cy="180" r="60" fill="none" stroke="white" stroke-width="0.5"/>
+    </svg>
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <p class="eyebrow">Multi-modal route search</p>
+      <h1>Discover how to<br><span>get anywhere.</span></h1>
+      <p class="lead">Every flight, train, bus, ferry and road route — compared in one search.</p>
+    </div>
+  </section>
+
+  <!-- Search card -->
+  <div class="search-wrap">
+    <div class="search-card">
+      <div class="field-row">
+        <div class="field">
+          <label class="lbl" for="from">From</label>
+          <div class="input-wrap">
+            <span class="ico" style="color:var(--teal)">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </span>
+            <input id="from" class="input has-ico" placeholder="City or airport">
+          </div>
+        </div>
+
+        <button class="swap" type="button" aria-label="Swap">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M6.99 11L3 15l3.99 4v-3H14v-2H6.99v-3zM21 9l-3.99-4v3H10v2h7.01v3L21 9z"/></svg>
+        </button>
+
+        <div class="field">
+          <label class="lbl" for="to">To</label>
+          <div class="input-wrap">
+            <span class="ico" style="color:var(--coral)">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </span>
+            <input id="to" class="input has-ico" placeholder="City or airport">
+          </div>
+        </div>
+
+        <div class="field fixed">
+          <label class="lbl" for="date">Date</label>
+          <input id="date" type="date" class="input">
+        </div>
+
+        <div class="field fixed" style="min-width:120px">
+          <span class="lbl">Passengers</span>
+          <div class="stepper"><button type="button">−</button><span>1</span><button type="button">+</button></div>
+        </div>
+
+        <a href="#results" class="btn btn-coral search-btn">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          Search Routes
+        </a>
+      </div>
+
+      <div class="modes">
+        <span class="lbl">Mode:</span>
+        <label class="pill"><input type="radio" name="mode-home" checked><span>All modes</span></label>
+        <label class="pill"><input type="radio" name="mode-home"><span>✈ Flights</span></label>
+        <label class="pill"><input type="radio" name="mode-home"><span>🚆 Trains</span></label>
+        <label class="pill"><input type="radio" name="mode-home"><span>🚌 Bus</span></label>
+        <label class="pill"><input type="radio" name="mode-home"><span>⛴ Ferry</span></label>
+        <label class="pill"><input type="radio" name="mode-home"><span>🚗 Drive</span></label>
+        <label class="pill"><input type="radio" name="mode-home"><span>🚲 Bike</span></label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popular routes -->
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Trending now</p>
+        <h2>Popular routes</h2>
+      </div>
+      <a href="#results" class="link-teal">
+        See all routes
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+      </a>
+    </div>
+
+    <div class="grid-4">
+      <a href="#results" class="tile">
+        <div class="tile-img">
+          <img src="https://images.unsplash.com/photo-1499669404910-ba8b35824a3c?w=600&h=400&fit=crop&auto=format" alt="London to Paris">
+          <span class="tile-tag">Train</span>
+        </div>
+        <div class="tile-body">
+          <p class="tile-title">London → Paris</p>
+          <div class="tile-meta"><span class="dur">2h 15m</span><span class="price">from £39</span></div>
+        </div>
+      </a>
+      <a href="#results" class="tile">
+        <div class="tile-img">
+          <img src="https://images.unsplash.com/photo-1426086800127-2601510ca027?w=600&h=400&fit=crop&auto=format" alt="Tokyo to Osaka">
+          <span class="tile-tag">Shinkansen</span>
+        </div>
+        <div class="tile-body">
+          <p class="tile-title">Tokyo → Osaka</p>
+          <div class="tile-meta"><span class="dur">2h 30m</span><span class="price">from ¥5,600</span></div>
+        </div>
+      </a>
+      <a href="#results" class="tile">
+        <div class="tile-img">
+          <img src="https://images.unsplash.com/photo-1541427468627-a89a96e5ca1d?w=600&h=400&fit=crop&auto=format" alt="Barcelona to Madrid">
+          <span class="tile-tag">AVE Train</span>
+        </div>
+        <div class="tile-body">
+          <p class="tile-title">Barcelona → Madrid</p>
+          <div class="tile-meta"><span class="dur">2h 45m</span><span class="price">from €29</span></div>
+        </div>
+      </a>
+      <a href="#results" class="tile">
+        <div class="tile-img">
+          <img src="https://images.unsplash.com/photo-1620662892011-f5c2d523fae2?w=600&h=400&fit=crop&auto=format" alt="NYC to Boston">
+          <span class="tile-tag">Bus + Rail</span>
+        </div>
+        <div class="tile-body">
+          <p class="tile-title">NYC → Boston</p>
+          <div class="tile-meta"><span class="dur">4h 10m</span><span class="price">from $29</span></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="brand">
+            <span class="brand-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2L14 6V14H10V10H6V14H2V6L8 2Z" fill="white"/></svg></span>
+            <span class="brand-name">WayPoint</span>
+          </div>
+          <p class="about">The world's most complete multi-modal travel planner.</p>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <ul><li><a href="#">How it works</a></li><li><a href="#">Pricing</a></li><li><a href="#">API</a></li></ul>
+        </div>
+        <div>
+          <h4>Routes</h4>
+          <ul><li><a href="#">Trains</a></li><li><a href="#">Flights</a></li><li><a href="#">Ferries</a></li><li><a href="#">Bus</a></li></ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul><li><a href="#">About</a></li><li><a href="#">Careers</a></li><li><a href="#">Blog</a></li><li><a href="#">Press</a></li></ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 WayPoint. All rights reserved.</p>
+        <nav><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a></nav>
+      </div>
+    </div>
+  </footer>
+
+</section>
+
+<!-- ============ PAGE: LOGIN ============ -->
+<section class="page" id="login">
+  <div class="auth">
+
+    <!-- Left: hero photo -->
+    <div class="auth-hero">
+      <img src="https://images.unsplash.com/photo-1589196728426-4613a4992c42?w=1200&h=1400&fit=crop&auto=format" alt="Scenic train route along water">
+      <div class="ov1"></div>
+      <div class="ov2"></div>
+      <div class="auth-hero-inner">
+        <a href="#home" class="brand">
+          <span class="brand-icon"><svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M8 2L14 6V14H10V10H6V14H2V6L8 2Z" fill="white"/></svg></span>
+          <span class="brand-name">Way<span>Point</span></span>
+        </a>
+        <div>
+          <p class="kicker">Multi-modal travel</p>
+          <h2>Every route,<br>one search.</h2>
+          <p class="sub">Compare flights, trains, buses, ferries and more between any two points on Earth.</p>
+          <div class="stats"><span>14M+ routes</span><span>180+ countries</span><span>200+ operators</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: auth panel -->
+    <div class="auth-panel">
+      <div class="auth-box">
+        <input type="radio" name="auth-mode" id="tab-login" checked>
+        <input type="radio" name="auth-mode" id="tab-signup">
+
+        <a href="#home" class="mobile-brand">
+          <span class="brand-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2L14 6V14H10V10H6V14H2V6L8 2Z" fill="white"/></svg></span>
+          <span class="brand-name">Way<span>Point</span></span>
+        </a>
+
+        <div class="tabs">
+          <label for="tab-login">Sign In</label>
+          <label for="tab-signup">Create Account</label>
+        </div>
+
+        <div class="l-only">
+          <h1>Welcome back</h1>
+          <p class="hint">Sign in to access your saved trips and routes.</p>
+        </div>
+        <div class="s-only">
+          <h1>Start exploring</h1>
+          <p class="hint">Create your free account to plan and save journeys.</p>
+        </div>
+
+        <div class="fields">
+          <div class="s-only">
+            <label for="name">Full name</label>
+            <input id="name" type="text" class="input" placeholder="Asha Patel">
+          </div>
+          <div>
+            <label for="email">Email address</label>
+            <input id="email" type="email" class="input" placeholder="you@example.com">
+          </div>
+          <div>
+            <label for="pw" class="row">Password <a href="#" class="forgot l-only">Forgot?</a></label>
+            <input id="pw" type="password" class="input" placeholder="••••••••">
+          </div>
+        </div>
+
+        <a href="#home" class="btn btn-coral btn-block l-only">Sign In</a>
+        <a href="#home" class="btn btn-coral btn-block s-only">Create Account</a>
+
+        <div class="divider"><i></i><span>or</span><i></i></div>
+
+        <a href="#home" class="btn btn-google btn-block">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844a4.14 4.14 0 01-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z" fill="#4285F4"/>
+            <path d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 009 18z" fill="#34A853"/>
+            <path d="M3.964 10.71A5.41 5.41 0 013.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 000 9c0 1.452.348 2.827.957 4.042l3.007-2.332z" fill="#FBBC05"/>
+            <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 00.957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z" fill="#EA4335"/>
+          </svg>
+          Continue with Google
+        </a>
+
+        <p class="switch-line">
+          <span class="l-only">No account? <label for="tab-signup">Sign up free</label></span>
+          <span class="s-only">Already have an account? <label for="tab-login">Sign in</label></span>
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ PAGE: RESULTS ============ -->
+<section class="page" id="results">
+
+  <!-- Search summary bar -->
+  <div class="summary">
+    <div class="summary-inner">
+      <div class="summary-chips">
+        <div class="chip"><small>From</small><b>London</b></div>
+        <svg width="16" height="16" fill="white" opacity="0.4" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+        <div class="chip"><small>To</small><b>Paris</b></div>
+        <div class="chip"><small>Date</small><b>Fri 14 Mar 2026</b></div>
+        <div class="chip"><b>1 passenger</b></div>
+      </div>
+      <a href="#home" class="btn btn-coral">Edit search</a>
+    </div>
+  </div>
+
+  <div class="results-layout">
+
+    <!-- Filters -->
+    <aside class="filters">
+      <h3>Filters</h3>
+
+      <div class="filter-block">
+        <p class="lbl">Transport type</p>
+        <div class="checks">
+          <label class="check"><input type="checkbox" checked><span class="box"><svg width="10" height="8" fill="none" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt"><span>✈</span><span>Flight</span></span></label>
+          <label class="check"><input type="checkbox" checked><span class="box"><svg width="10" height="8" fill="none" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt"><span>🚆</span><span>Train</span></span></label>
+          <label class="check"><input type="checkbox" checked><span class="box"><svg width="10" height="8" fill="none" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt"><span>🚌</span><span>Bus</span></span></label>
+          <label class="check"><input type="checkbox" checked><span class="box"><svg width="10" height="8" fill="none" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt"><span>⛴</span><span>Ferry</span></span></label>
+          <label class="check"><input type="checkbox"><span class="box"><svg width="10" height="8" fill="none" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt"><span>🚗</span><span>Car</span></span></label>
+          <label class="check"><input type="checkbox"><span class="box"><svg width="10" height="8" fill="none" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt"><span>🚲</span><span>Bike</span></span></label>
+        </div>
+      </div>
+
+      <div class="filter-block">
+        <div class="filter-head"><span class="lbl">Max price</span><b>£200</b></div>
+        <input type="range" min="10" max="500" value="200">
+        <div class="range-scale"><span>£10</span><span>£500</span></div>
+      </div>
+
+      <div class="filter-block">
+        <div class="filter-head"><span class="lbl">Max duration</span><b>12h 0m</b></div>
+        <input type="range" min="60" max="1440" step="30" value="720">
+      </div>
+
+      <div class="filter-block switch-row">
+        <span>Direct only</span>
+        <label class="switch"><input type="checkbox"><span class="track"></span></label>
+      </div>
+    </aside>
+
+    <!-- Results -->
+    <main class="results-main">
+      <div class="sort-row">
+        <label class="tab"><input type="radio" name="sort-results" checked><span>Best</span></label>
+        <label class="tab"><input type="radio" name="sort-results"><span>Cheapest</span></label>
+        <label class="tab"><input type="radio" name="sort-results"><span>Fastest</span></label>
+        <span class="count">5 results</span>
+      </div>
+
+      <div class="route-list">
+
+        <a href="#details" class="route-card">
+          <div class="mode-icons"><span class="mode-icon">🚆</span></div>
+          <div class="route-info"><b>Eurostar</b><small>London St Pancras → Paris Gare du Nord</small></div>
+          <div class="route-times">
+            <p class="t">07:01 <i>→</i> 10:16</p>
+            <div class="m"><span>2h 15m</span><span>Direct</span></div>
+          </div>
+          <div class="route-price">
+            <span class="badge badge-fast">Fastest</span>
+            <span class="amt">£39</span><small>per person</small>
+          </div>
+          <svg class="chev" width="20" height="20" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="currentColor"/></svg>
+        </a>
+
+        <a href="#details" class="route-card">
+          <div class="mode-icons"><span class="mode-icon">🚌</span></div>
+          <div class="route-info"><b>FlixBus + BlaBlaCar</b><small>London Victoria → Paris Bercy</small></div>
+          <div class="route-times">
+            <p class="t">06:30 <i>→</i> 14:45</p>
+            <div class="m"><span>8h 15m</span><span>1 stop</span></div>
+          </div>
+          <div class="route-price">
+            <span class="badge badge-cheap">Cheapest</span>
+            <span class="amt">£14</span><small>per person</small>
+          </div>
+          <svg class="chev" width="20" height="20" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="currentColor"/></svg>
+        </a>
+
+        <a href="#details" class="route-card">
+          <div class="mode-icons"><span class="mode-icon">✈</span><span class="mode-icon">🚆</span></div>
+          <div class="route-info"><b>British Airways + SNCF</b><small>Heathrow T5 → Charles de Gaulle</small></div>
+          <div class="route-times">
+            <p class="t">08:20 <i>→</i> 11:45</p>
+            <div class="m"><span>2h 55m</span><span>Direct</span></div>
+          </div>
+          <div class="route-price">
+            <span class="badge badge-rec">Recommended</span>
+            <span class="amt">£89</span><small>per person</small>
+          </div>
+          <svg class="chev" width="20" height="20" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="currentColor"/></svg>
+        </a>
+
+        <a href="#details" class="route-card">
+          <div class="mode-icons"><span class="mode-icon">⛴</span><span class="mode-icon">🚌</span></div>
+          <div class="route-info"><b>DFDS Ferries + Coach</b><small>London Victoria → Paris Gare du Nord</small></div>
+          <div class="route-times">
+            <p class="t">21:00 <i>→</i> 08:30</p>
+            <div class="m"><span>11h 30m</span><span>2 stops</span></div>
+          </div>
+          <div class="route-price">
+            <span class="amt">£28</span><small>per person</small>
+          </div>
+          <svg class="chev" width="20" height="20" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="currentColor"/></svg>
+        </a>
+
+        <a href="#details" class="route-card">
+          <div class="mode-icons"><span class="mode-icon">🚌</span></div>
+          <div class="route-info"><b>National Express + Ouibus</b><small>London Victoria → Paris Gallieni</small></div>
+          <div class="route-times">
+            <p class="t">09:15 <i>→</i> 19:45</p>
+            <div class="m"><span>10h 30m</span><span>1 stop</span></div>
+          </div>
+          <div class="route-price">
+            <span class="amt">£18</span><small>per person</small>
+          </div>
+          <svg class="chev" width="20" height="20" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="currentColor"/></svg>
+        </a>
+
+      </div>
+    </main>
+  </div>
+
+</section>
+
+<!-- ============ PAGE: DETAILS ============ -->
+<section class="page" id="details">
+
+  <div class="page-pad container">
+
+    <div class="crumbs">
+      <a href="#home">Home</a><span>/</span>
+      <a href="#results">Search results</a><span>/</span>
+      <span class="cur">Route details</span>
+    </div>
+
+    <div class="toggle-row">
+      <label class="tab sm"><input type="radio" name="sort-details" checked><span>Fastest</span></label>
+      <label class="tab sm"><input type="radio" name="sort-details"><span>Cheapest</span></label>
+      <label class="tab sm"><input type="radio" name="sort-details"><span>Fewest transfers</span></label>
+    </div>
+
+    <div class="details-layout">
+
+      <!-- Timeline -->
+      <div class="timeline-card">
+        <div class="tc-head">
+          <div>
+            <h1>London → Paris</h1>
+            <p>Friday, 14 March 2026 · 1 passenger</p>
+          </div>
+          <div class="price"><b>£39</b><small>per person</small></div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-node">📍</div>
+          <div class="tl-body">
+            <p class="tl-time">07:01</p>
+            <p class="tl-place">London St Pancras International</p>
+            <p class="tl-detail">Platform 3 — Check in 30 min before departure</p>
+          </div>
+        </div>
+
+        <div class="tl-item leg">
+          <div class="tl-node leg">🚆</div>
+          <div class="tl-body">
+            <div class="tl-leg-box">
+              <div class="top"><b>Eurostar — Train</b><span class="dur-badge">2h 15m</span></div>
+              <p class="tl-detail">Business Premier · Coach 5 · Seat 14A</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-node arrive">🏁</div>
+          <div class="tl-body">
+            <p class="tl-time">10:16</p>
+            <p class="tl-place">Paris Gare du Nord</p>
+            <p class="tl-detail">Arrive platform 7 · Local time UTC+1</p>
+          </div>
+        </div>
+
+        <div class="stats3">
+          <div><b>2h 15m</b><small>Total time</small></div>
+          <div><b>6.2 kg</b><small>CO₂</small></div>
+          <div><b>0 direct</b><small>Transfers</small></div>
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div class="map-col">
+        <div class="map" style="height:480px">
+          <img src="https://images.unsplash.com/photo-1526404423292-15db8c2334e5?w=900&h=480&fit=crop&auto=format" alt="Route map">
+          <svg viewBox="0 0 900 480" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M 120 380 C 300 200 600 250 780 120" stroke="#FF6B4A" stroke-width="3" stroke-dasharray="10 4" fill="none"/>
+            <circle cx="120" cy="380" r="10" fill="#145C5C" stroke="white" stroke-width="3"/>
+            <circle cx="780" cy="120" r="10" fill="#FF6B4A" stroke="white" stroke-width="3"/>
+          </svg>
+          <span class="map-tag" style="bottom:96px;left:64px;background:var(--teal)">London</span>
+          <span class="map-tag" style="top:80px;right:80px;background:var(--coral)">Paris</span>
+          <button class="map-float" type="button"><span>🏛</span> Show nearby attractions</button>
+          <div class="map-zoom"><button type="button">+</button><button type="button">−</button></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Sticky bottom bar -->
+  <div class="bottom-bar">
+    <div class="bottom-inner">
+      <div class="bb-stats">
+        <div><small>Total time</small><b>2h 15m</b></div>
+        <span class="vsep"></span>
+        <div><small>Total price</small><b class="price">£39</b></div>
+        <span class="vsep"></span>
+        <div><small>Operator</small><b class="op">Eurostar</b></div>
+      </div>
+      <div class="bb-actions">
+        <a href="#planner" class="btn btn-outline">Add to Trip Planner</a>
+        <a href="#booking" class="btn btn-coral">Continue to Booking</a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============ PAGE: BOOKING ============ -->
+<section class="page" id="booking">
+
+  <div class="booking">
+
+    <div class="crumbs tight">
+      <a href="#home">Home</a><span>/</span>
+      <a href="#results">Results</a><span>/</span>
+      <a href="#details">Route details</a><span>/</span>
+      <span class="cur">Booking</span>
+    </div>
+
+    <div class="booking-layout">
+
+      <!-- Left column -->
+      <div class="booking-left">
+
+        <div class="card pad">
+          <div class="operator">
+            <div class="op-logo">ES</div>
+            <div>
+              <h2>Eurostar</h2>
+              <div class="stars">
+                <svg width="14" height="14" fill="#FF6B4A" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg width="14" height="14" fill="#FF6B4A" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg width="14" height="14" fill="#FF6B4A" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg width="14" height="14" fill="#FF6B4A" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg width="14" height="14" fill="#E8E5E0" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <span>4.2 (18,400 reviews)</span>
+              </div>
+              <p>London St Pancras → Paris Gare du Nord</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card clip">
+          <div class="sched-head">
+            <h3>Select departure</h3>
+            <p>Friday, 14 March 2026</p>
+          </div>
+          <table>
+            <thead>
+              <tr><th>Select</th><th>Departs</th><th>Arrives</th><th>Duration</th><th>Class</th><th>Price</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><label class="radio"><input type="radio" name="dep"><span class="dot"></span></label></td>
+                <td class="t">07:01</td><td class="t">10:16</td><td class="d">2h 15m</td>
+                <td><span class="cls cls-bus">Business Premier</span></td><td class="p">£149</td>
+              </tr>
+              <tr>
+                <td><label class="radio"><input type="radio" name="dep"><span class="dot"></span></label></td>
+                <td class="t">09:01</td><td class="t">12:16</td><td class="d">2h 15m</td>
+                <td><span class="cls cls-prem">Standard Premier</span></td><td class="p">£89</td>
+              </tr>
+              <tr>
+                <td><label class="radio"><input type="radio" name="dep" checked><span class="dot"></span></label></td>
+                <td class="t">11:01</td><td class="t">14:19</td><td class="d">2h 18m</td>
+                <td><span class="cls cls-std">Standard</span></td><td class="p">£39</td>
+              </tr>
+              <tr>
+                <td><label class="radio"><input type="radio" name="dep"><span class="dot"></span></label></td>
+                <td class="t">13:01</td><td class="t">16:16</td><td class="d">2h 15m</td>
+                <td><span class="cls cls-bus">Business Premier</span></td><td class="p">£149</td>
+              </tr>
+              <tr>
+                <td><label class="radio"><input type="radio" name="dep"><span class="dot"></span></label></td>
+                <td class="t">15:01</td><td class="t">18:19</td><td class="d">2h 18m</td>
+                <td><span class="cls cls-std">Standard</span></td><td class="p">£45</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card pad">
+          <h3>Passenger details</h3>
+          <div class="pax-row">
+            <div>
+              <span class="lbl">Passengers</span>
+              <div class="stepper lg"><button type="button">−</button><span>1</span><button type="button">+</button></div>
+            </div>
+            <div>
+              <label class="lbl" for="fare">Fare class</label>
+              <select id="fare" class="select">
+                <option selected>Standard</option>
+                <option>Standard Premier</option>
+                <option>Business Premier</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right: price summary -->
+      <div class="summary-col">
+        <div class="card summary-card">
+          <h3>Price summary</h3>
+          <div class="sum-line"><span>Base fare × 1</span><b>£39</b></div>
+          <div class="sum-line"><span>Taxes &amp; fees</span><b>£5</b></div>
+          <div class="sum-line"><span>Booking fee</span><b class="free">Free</b></div>
+
+          <div class="sum-total">
+            <div class="row"><b>Total</b><b class="amt">£44</b></div>
+            <p>including all taxes</p>
+          </div>
+
+          <a href="#" class="btn btn-coral">Book on Eurostar</a>
+          <a href="#planner" class="btn btn-outline">Add to Trip Planner</a>
+
+          <div class="secure">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+            Secure payment via Eurostar.com
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- ============ PAGE: PLANNER ============ -->
+<section class="page" id="planner">
+
+  <div class="page-pad">
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <div class="toolbar-inner">
+        <input class="title-input" value="European Spring Tour" aria-label="Trip title">
+        <div class="toolbar-actions">
+          <button type="button" class="btn btn-light">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>
+            Share Trip
+          </button>
+          <a href="#trips" class="btn btn-coral">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"/></svg>
+            Save Trip
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="planner-layout">
+
+      <!-- Left: stops -->
+      <div class="stops-col">
+        <div class="card">
+          <div class="stops-head">
+            <h3>Itinerary <small>4 stops</small></h3>
+            <span class="date-pill">14–27 Mar 2026</span>
+          </div>
+
+          <div class="stop sel">
+            <span class="num">1</span>
+            <div class="info"><b><span>🇬🇧</span> London</b><small>14 Mar · United Kingdom</small></div>
+            <button class="rm" type="button" aria-label="Remove">×</button>
+          </div>
+          <div class="connector"><i></i><span class="ic">🚆</span><small>→ Paris</small></div>
+
+          <div class="stop">
+            <span class="num">2</span>
+            <div class="info"><b><span>🇫🇷</span> Paris</b><small>16 Mar · France</small></div>
+            <button class="rm" type="button" aria-label="Remove">×</button>
+          </div>
+          <div class="connector"><i></i><span class="ic">✈</span><small>→ Rome</small></div>
+
+          <div class="stop">
+            <span class="num">3</span>
+            <div class="info"><b><span>🇮🇹</span> Rome</b><small>19 Mar · Italy</small></div>
+            <button class="rm" type="button" aria-label="Remove">×</button>
+          </div>
+          <div class="connector"><i></i><span class="ic">🚆</span><small>→ Barcelona</small></div>
+
+          <div class="stop">
+            <span class="num">4</span>
+            <div class="info"><b><span>🇪🇸</span> Barcelona</b><small>23 Mar · Spain</small></div>
+            <button class="rm" type="button" aria-label="Remove">×</button>
+          </div>
+
+          <a href="#home" class="add-stop">
+            <span class="plus">+</span>
+            <span>Add a stop</span>
+          </a>
+
+          <div class="totals">
+            <div><b>13 days</b><small>Duration</small></div>
+            <div><b>4</b><small>Cities</small></div>
+            <div><b>£342</b><small>Est. cost</small></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: map + options -->
+      <div class="planner-right">
+        <div class="map">
+          <img src="https://images.unsplash.com/photo-1472146936668-d987bf0a6e38?w=1000&h=340&fit=crop&auto=format" alt="Trip route map">
+          <svg viewBox="0 0 1000 340" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M 160 250 C 280 180 400 210 500 190 C 600 170 700 200 840 150" stroke="#FF6B4A" stroke-width="3" fill="none" stroke-dasharray="12 5"/>
+            <g><circle cx="160" cy="250" r="10" fill="#FF6B4A" stroke="white" stroke-width="2.5"/><text x="160" y="254" text-anchor="middle" fill="white" font-size="8" font-weight="700">1</text><rect x="144" y="264" width="32" height="16" rx="4" fill="white" opacity="0.9"/><text x="160" y="275" text-anchor="middle" fill="#1A1A1A" font-size="9" font-weight="600">LHR</text></g>
+            <g><circle cx="500" cy="190" r="10" fill="#145C5C" stroke="white" stroke-width="2.5"/><text x="500" y="194" text-anchor="middle" fill="white" font-size="8" font-weight="700">2</text><rect x="484" y="204" width="32" height="16" rx="4" fill="white" opacity="0.9"/><text x="500" y="215" text-anchor="middle" fill="#1A1A1A" font-size="9" font-weight="600">CDG</text></g>
+            <g><circle cx="700" cy="200" r="10" fill="#145C5C" stroke="white" stroke-width="2.5"/><text x="700" y="204" text-anchor="middle" fill="white" font-size="8" font-weight="700">3</text><rect x="684" y="214" width="32" height="16" rx="4" fill="white" opacity="0.9"/><text x="700" y="225" text-anchor="middle" fill="#1A1A1A" font-size="9" font-weight="600">FCO</text></g>
+            <g><circle cx="840" cy="150" r="10" fill="#145C5C" stroke="white" stroke-width="2.5"/><text x="840" y="154" text-anchor="middle" fill="white" font-size="8" font-weight="700">4</text><rect x="824" y="164" width="32" height="16" rx="4" fill="white" opacity="0.9"/><text x="840" y="175" text-anchor="middle" fill="#1A1A1A" font-size="9" font-weight="600">BCN</text></g>
+          </svg>
+        </div>
+
+        <div class="card legs">
+          <h3>Transport options: <span>London → Paris</span></h3>
+          <div class="leg-opts">
+            <div class="leg-opt sel">
+              <span class="ic">🚆</span>
+              <div class="mid"><b>Eurostar</b><small>🚆 Train · 2h 15m</small></div>
+              <span class="badge badge-rec">Fastest</span>
+              <span class="p">£39</span>
+            </div>
+            <div class="leg-opt">
+              <span class="ic">🚌</span>
+              <div class="mid"><b>FlixBus</b><small>🚌 Bus · 8h 15m</small></div>
+              <span class="badge badge-rec">Cheapest</span>
+              <span class="p">£14</span>
+            </div>
+            <div class="leg-opt">
+              <span class="ic">✈</span>
+              <div class="mid"><b>British Airways</b><small>✈ Flight · 1h 20m</small></div>
+              <span class="p">£89</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- ============ PAGE: TRIPS ============ -->
+<section class="page" id="trips">
+
+  <div class="dash">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sb-user">
+        <div class="avatar">AP</div>
+        <div><b>Asha Patel</b><small>asha@example.com</small></div>
+      </div>
+      <nav class="sb-nav">
+        <a href="#trips" class="active"><span>🗺️</span> My Trips</a>
+        <a href="#"><span>⭐</span> Saved Routes</a>
+        <a href="#"><span>💳</span> Payment Methods</a>
+        <a href="#"><span>⚙️</span> Settings</a>
+      </nav>
+      <div class="sb-foot">
+        <a href="#login"><span>🚪</span> Log Out</a>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="dash-main">
+
+      <div class="dash-head">
+        <div>
+          <p>Welcome back 👋</p>
+          <h1>Asha Patel</h1>
+        </div>
+        <a href="#planner" class="btn btn-coral">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+          New Trip
+        </a>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat"><div class="ic">🗺️</div><b>6</b><small>Total trips</small></div>
+        <div class="stat"><div class="ic">🌍</div><b>12</b><small>Countries visited</small></div>
+        <div class="stat"><div class="ic">⭐</div><b>24</b><small>Routes saved</small></div>
+        <div class="stat"><div class="ic">🌱</div><b>1.2t</b><small>Carbon saved</small></div>
+      </div>
+
+      <!-- CSS-only filter -->
+      <input type="radio" name="f" id="f-all" checked>
+      <input type="radio" name="f" id="f-upcoming">
+      <input type="radio" name="f" id="f-draft">
+      <input type="radio" name="f" id="f-completed">
+
+      <div class="filter-tabs">
+        <label for="f-all">All trips</label>
+        <label for="f-upcoming">Upcoming</label>
+        <label for="f-draft">Draft</label>
+        <label for="f-completed">Completed</label>
+      </div>
+
+      <div class="trip-grid">
+
+        <div class="trip upcoming">
+          <div class="trip-cover">
+            <div class="imgwrap"><img src="https://images.unsplash.com/photo-1499669404910-ba8b35824a3c?w=600&h=400&fit=crop&auto=format" alt="European Spring Tour"></div>
+            <details class="menu"><summary>⋯</summary>
+              <div class="menu-list"><a href="#planner">Edit trip</a><a href="#">Duplicate</a><a href="#">Share</a><a href="#" class="del">Delete</a></div>
+            </details>
+            <span class="status st-upcoming">Upcoming</span>
+          </div>
+          <div class="trip-body">
+            <h3>European Spring Tour</h3>
+            <div class="trip-meta"><p>14 Mar – 27 Mar 2026</p><small>4 stops</small></div>
+            <a href="#planner" class="btn btn-light">View trip</a>
+          </div>
+        </div>
+
+        <div class="trip draft">
+          <div class="trip-cover">
+            <div class="imgwrap"><img src="https://images.unsplash.com/photo-1426086800127-2601510ca027?w=600&h=400&fit=crop&auto=format" alt="Japan Rail Pass Adventure"></div>
+            <details class="menu"><summary>⋯</summary>
+              <div class="menu-list"><a href="#planner">Edit trip</a><a href="#">Duplicate</a><a href="#">Share</a><a href="#" class="del">Delete</a></div>
+            </details>
+            <span class="status st-draft">Draft</span>
+          </div>
+          <div class="trip-body">
+            <h3>Japan Rail Pass Adventure</h3>
+            <div class="trip-meta"><p>10 Jun – 28 Jun 2026</p><small>7 stops</small></div>
+            <a href="#planner" class="btn btn-light">View trip</a>
+          </div>
+        </div>
+
+        <div class="trip completed">
+          <div class="trip-cover">
+            <div class="imgwrap"><img src="https://images.unsplash.com/photo-1541427468627-a89a96e5ca1d?w=600&h=400&fit=crop&auto=format" alt="Iberian Peninsula Loop"></div>
+            <details class="menu"><summary>⋯</summary>
+              <div class="menu-list"><a href="#planner">Edit trip</a><a href="#">Duplicate</a><a href="#">Share</a><a href="#" class="del">Delete</a></div>
+            </details>
+            <span class="status st-completed">Completed</span>
+          </div>
+          <div class="trip-body">
+            <h3>Iberian Peninsula Loop</h3>
+            <div class="trip-meta"><p>2 Aug – 16 Aug 2025</p><small>5 stops</small></div>
+            <a href="#planner" class="btn btn-light">View trip</a>
+          </div>
+        </div>
+
+        <div class="trip completed">
+          <div class="trip-cover">
+            <div class="imgwrap"><img src="https://images.unsplash.com/photo-1620662892011-f5c2d523fae2?w=600&h=400&fit=crop&auto=format" alt="NYC to Boston Day Trip"></div>
+            <details class="menu"><summary>⋯</summary>
+              <div class="menu-list"><a href="#planner">Edit trip</a><a href="#">Duplicate</a><a href="#">Share</a><a href="#" class="del">Delete</a></div>
+            </details>
+            <span class="status st-completed">Completed</span>
+          </div>
+          <div class="trip-body">
+            <h3>NYC to Boston Day Trip</h3>
+            <div class="trip-meta"><p>15 Dec 2025</p><small>2 stops</small></div>
+            <a href="#planner" class="btn btn-light">View trip</a>
+          </div>
+        </div>
+
+        <div class="trip draft">
+          <div class="trip-cover">
+            <div class="imgwrap"><img src="https://images.unsplash.com/photo-1603270504031-4344a08b28b6?w=600&h=400&fit=crop&auto=format" alt="Coastal Scotland by Train"></div>
+            <details class="menu"><summary>⋯</summary>
+              <div class="menu-list"><a href="#planner">Edit trip</a><a href="#">Duplicate</a><a href="#">Share</a><a href="#" class="del">Delete</a></div>
+            </details>
+            <span class="status st-draft">Draft</span>
+          </div>
+          <div class="trip-body">
+            <h3>Coastal Scotland by Train</h3>
+            <div class="trip-meta"><p>5 Sep – 12 Sep 2026</p><small>6 stops</small></div>
+            <a href="#planner" class="btn btn-light">View trip</a>
+          </div>
+        </div>
+
+        <div class="trip upcoming">
+          <div class="trip-cover">
+            <div class="imgwrap"><img src="https://images.unsplash.com/photo-1589196728426-4613a4992c42?w=600&h=400&fit=crop&auto=format" alt="Swiss Alpine Route"></div>
+            <details class="menu"><summary>⋯</summary>
+              <div class="menu-list"><a href="#planner">Edit trip</a><a href="#">Duplicate</a><a href="#">Share</a><a href="#" class="del">Delete</a></div>
+            </details>
+            <span class="status st-upcoming">Upcoming</span>
+          </div>
+          <div class="trip-body">
+            <h3>Swiss Alpine Route</h3>
+            <div class="trip-meta"><p>1 Jul – 10 Jul 2026</p><small>5 stops</small></div>
+            <a href="#planner" class="btn btn-light">View trip</a>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+</section>
+
+</body>
+</html>
